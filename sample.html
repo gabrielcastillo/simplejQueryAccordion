@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+
+    <title>jQuery Accordion Sample</title>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        /* Demo Styles */
+
+        .wrapper {
+            width:800px;
+            margin:100px auto;
+        }
+
+        code {
+            color:red;
+        }
+        /* Accordion Styles */
+        .accordion {
+            list-style:none;
+            padding:0;
+            margin:0;
+        }
+        .accordion-panel {
+            display:none;
+            padding:5px 10px;
+        }
+        .accordion-control {
+            border:1px solid #ededed;
+            display:block;
+            cursor: pointer;
+            font-family:Helvetica, Arial, 'sans-serif';
+            font-size:16px;
+            font-weight:1em;
+            padding:5px 10px;
+            
+        }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+        <h3>Simple jQuery Accrodion</h3>
+        <p>Can be used in sidebar as a nav menu, or in your main content.</p>
+        <p>All style can be changed, except for <code>.accordion-panel</code> this needs to be set as <code>display:none;</code>.</p>
+        <ul class="accordion">
+            <li>
+                <span class="accordion-control">Issue #1</span>
+                <div class="accordion-panel">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique ea rerum animi vel voluptas magni mollitia cum nobis, unde, maxime doloribus exercitationem corporis adipisci numquam ab, in iusto placeat. Consequatur.
+                </div>
+            </li>
+            <li>
+                <span class="accordion-control">Issue #2</span>
+                <div class="accordion-panel">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique ea rerum animi vel voluptas magni mollitia cum nobis, unde, maxime doloribus exercitationem corporis adipisci numquam ab, in iusto placeat. Consequatur.
+                </div>
+            </li>
+            <li>
+                <span class="accordion-control">Issue #3</span>
+                <div class="accordion-panel">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique ea rerum animi vel voluptas magni mollitia cum nobis, unde, maxime doloribus exercitationem corporis adipisci numquam ab, in iusto placeat. Consequatur.
+                </div>
+            </li>
+            <li>
+                <span class="accordion-control">Issue #4</span>
+                <div class="accordion-panel">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique ea rerum animi vel voluptas magni mollitia cum nobis, unde, maxime doloribus exercitationem corporis adipisci numquam ab, in iusto placeat. Consequatur.
+                </div>
+            </li>
+        </ul>
+        <div>
+            <p>jQuery Code:</p>
+            <code>
+                $('document').ready(function(){<br />
+                    $('.accordion').on('click', '.accordion-control', function(e){
+                        e.preventDefault(); <br />
+                        $('.accordion-panel').not($(this)).slideUp(); <br />
+                        $(this).next('.accordion-panel').not(':animated').slideToggle(); </br />
+                    });
+                });
+            </code>
+        </div>
+    </div>
+    <p style="text-align:center; font-size:18px;">Created By: Gabriel Castillo / <a href="http://stellervision.com">Stellervision LLC</a></p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $('document').ready(function(){
+            $('.accordion').on('click', '.accordion-control', function(e){
+                e.preventDefault();
+                $('.accordion-panel').not($(this)).slideUp(); //Close all other animated divs
+                $(this).next('.accordion-panel').not(':animated').slideToggle(); //toggle selected div
+            });
+        });
+    </script>
+  </body>
+</html>
